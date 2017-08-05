@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Welcome user @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h1>
+    <a href="@Url.Action("SignOut","Home")">Logout</a>
+}
